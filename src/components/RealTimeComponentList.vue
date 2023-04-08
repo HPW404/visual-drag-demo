@@ -1,5 +1,6 @@
 <template>
     <div class="real-time-component-list">
+        <div class="title">实时组件列表</div>
         <div
             v-for="(item, index) in componentData"
             :key="index"
@@ -71,6 +72,11 @@ export default {
 <style lang="scss" scoped>
 .real-time-component-list {
     height: 35%;
+
+    .title {
+        padding: 10px 10px 0;
+        margin-bottom: 4px;
+    }
 
     .list {
         height: 30px;

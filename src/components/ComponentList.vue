@@ -7,7 +7,7 @@
             draggable
             :data-index="index"
         >
-            <span v-if="item.icon.substr(0,2) === 'el'" :class="item.icon"></span>
+            <span v-if="item.icon.substr(0, 2) === 'el'" :class="item.icon"></span>
             <span v-else class="iconfont" :class="'icon-' + item.icon"></span>
         </div>
     </div>
@@ -35,7 +35,7 @@ export default {
     height: 65%;
     padding: 10px;
     display: grid;
-    grid-gap: 10px 19px;
+    grid-gap: 10px 16px;
     grid-template-columns: repeat(auto-fill, 80px);
     grid-template-rows: repeat(auto-fill, 40px);
 
