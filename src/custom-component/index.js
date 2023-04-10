@@ -10,6 +10,7 @@ const components = [
     'LineShape',
     'VTable',
     'VChart',
+    'VInput',
 ]
 
 components.forEach(key => {

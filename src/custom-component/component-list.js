@@ -40,7 +40,7 @@ const list = [
             requestCount: 0, // 请求次数限制，0 为无限
         },
         style: {
-            width: 200,
+            width: 92,
             height: 28,
             fontSize: '',
             fontWeight: 400,
@@ -57,6 +57,29 @@ const list = [
         icon: 'button',
         style: {
             width: 100,
+            height: 34,
+            borderWidth: 1,
+            borderColor: '',
+            borderRadius: '',
+            fontSize: '',
+            fontWeight: 400,
+            lineHeight: '',
+            letterSpacing: 0,
+            textAlign: '',
+            color: '',
+            backgroundColor: '',
+        },
+    },
+    {
+        component: 'VInput',
+        label: '文本框',
+        propValue: {
+            content: '',
+            placeholder: '请输入占位符',
+        },
+        icon: 'shurukuang',
+        style: {
+            width: 180,
             height: 34,
             borderWidth: 1,
             borderColor: '',

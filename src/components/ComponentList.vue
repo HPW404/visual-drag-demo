@@ -7,7 +7,8 @@
             draggable
             :data-index="index"
         >
-            <span v-if="item.icon.substr(0, 2) === 'el'" :class="item.icon"></span>
+            <span class="label">{{ item.label }}</span>
+            <span v-if="item.icon.substring(0, 2) === 'el'" :class="item.icon"></span>
             <span v-else class="iconfont" :class="'icon-' + item.icon"></span>
         </div>
     </div>
@@ -50,6 +51,17 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+
+        .label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #60cde0;
+            color: #fff;
+            font-size: 12px;
+            padding: 1px;
+        }
 
         &:active {
             cursor: grabbing;
