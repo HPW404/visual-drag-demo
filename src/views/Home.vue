@@ -44,7 +44,7 @@ import Editor from '@/components/Editor/index'
 import ComponentList from '@/components/ComponentList' // 左侧列表组件
 import AnimationList from '@/components/AnimationList' // 右侧动画列表
 import EventList from '@/components/EventList' // 右侧事件列表
-import componentList from '@/custom-component/component-list' // 左侧列表数据
+import { componentList } from '@/custom-component/component-list' // 左侧列表数据
 import Toolbar from '@/components/Toolbar'
 import { deepCopy } from '@/utils/utils'
 import { mapState } from 'vuex'

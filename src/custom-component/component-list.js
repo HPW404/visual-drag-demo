@@ -23,13 +23,30 @@ export const commonAttr = {
     },
 }
 
+// 组件列表分类
+export const types = [
+    {
+        key: '1',
+        label: '基础组件',
+    },
+    {
+        key: '2',
+        label: '表单组件',
+    },
+    {
+        key: '3',
+        label: '特殊组件',
+    },
+]
+
 // 编辑器左侧组件列表
-const list = [
+export const componentList = [
     {
         component: 'VText',
         label: '文字',
         propValue: '双击编辑文字',
         icon: 'wenben',
+        type: '1',
         request: {
             method: 'GET',
             data: [],
@@ -49,12 +66,14 @@ const list = [
             textAlign: '',
             color: '',
         },
+        index: 0,
     },
     {
         component: 'VButton',
         label: '按钮',
         propValue: '按钮',
         icon: 'button',
+        type: '1',
         style: {
             width: 100,
             height: 34,
@@ -69,6 +88,7 @@ const list = [
             color: '',
             backgroundColor: '',
         },
+        index: 1,
     },
     {
         component: 'VInput',
@@ -78,6 +98,7 @@ const list = [
             placeholder: '请输入占位符',
         },
         icon: 'shurukuang',
+        type: '2',
         style: {
             width: 180,
             height: 34,
@@ -92,11 +113,13 @@ const list = [
             color: '',
             backgroundColor: '',
         },
+        index: 2,
     },
     {
         component: 'Picture',
         label: '图片',
         icon: 'tupian',
+        type: '1',
         propValue: {
             url: require('@/assets/title.jpg'),
             flip: {
@@ -109,12 +132,14 @@ const list = [
             height: 200,
             borderRadius: '',
         },
+        index: 3,
     },
     {
         component: 'RectShape',
         label: '矩形',
         propValue: '&nbsp;',
         icon: 'juxing',
+        type: '1',
         style: {
             width: 200,
             height: 200,
@@ -131,23 +156,27 @@ const list = [
             borderRadius: '',
             verticalAlign: 'middle',
         },
+        index: 4,
     },
     {
         component: 'LineShape',
-        label: '直线',
+        label: '分割线',
         propValue: '',
         icon: 'zhixian',
+        type: '1',
         style: {
             width: 200,
             height: 2,
             backgroundColor: '#000',
         },
+        index: 5,
     },
     {
         component: 'CircleShape',
         label: '圆形',
         propValue: '&nbsp;',
         icon: '24gl-circle',
+        type: '3',
         style: {
             width: 200,
             height: 200,
@@ -164,12 +193,14 @@ const list = [
             borderRadius: '',
             verticalAlign: 'middle',
         },
+        index: 6,
     },
     {
         component: 'SVGStar',
         label: '星形',
         icon: 'kongwujiaoxing',
         propValue: '',
+        type: '3',
         style: {
             width: 80,
             height: 80,
@@ -182,12 +213,14 @@ const list = [
             borderColor: '#000',
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
+        index: 7,
     },
     {
         component: 'SVGTriangle',
         label: '三角形',
         icon: 'xingzhuang-sanjiaoxing',
         propValue: '',
+        type: '3',
         style: {
             width: 80,
             height: 80,
@@ -200,11 +233,13 @@ const list = [
             borderColor: '#000',
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
+        index: 8,
     },
     {
         component: 'VTable',
         label: '表格',
         icon: 'biaoge',
+        type: '1',
         propValue: {
             data: [
                 ['表头1', '表头2', '表头3'],
@@ -231,11 +266,13 @@ const list = [
             color: '',
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
+        index: 9,
     },
     {
         component: 'VChart',
         label: '图表',
         icon: 'el-icon-data-analysis',
+        type: '1',
         propValue: {
             chart: 'VChart',
             option: {
@@ -275,13 +312,12 @@ const list = [
             height: 500,
             borderRadius: '',
         },
+        index: 10,
     },
 ]
 
-for (let i = 0, len = list.length; i < len; i++) {
-    const item = list[i]
+for (let i = 0, len = componentList.length; i < len; i++) {
+    const item = componentList[i]
     item.style = { ...commonStyle, ...item.style }
-    list[i] = { ...commonAttr, ...item }
+    componentList[i] = { ...commonAttr, ...item }
 }
-
-export default list

@@ -1,26 +1,32 @@
 <template>
-    <div class="component-list" @dragstart="handleDragStart">
-        <div
-            v-for="(item, index) in componentList"
-            :key="index"
-            class="list"
-            draggable
-            :data-index="index"
-        >
-            <span class="label">{{ item.label }}</span>
-            <span v-if="item.icon.substring(0, 2) === 'el'" :class="item.icon"></span>
-            <span v-else class="iconfont" :class="'icon-' + item.icon"></span>
+    <div class="list-container">
+        <div v-for="i in types" :key="i.key">
+            <span class="title-label">{{ i.label }}</span>
+            <div class="component-list" @dragstart="handleDragStart">
+                <div
+                    v-for="item in componentList.filter(component => component.type === i.key)"
+                    :key="item.index"
+                    class="list"
+                    draggable
+                    :data-index="item.index"
+                >
+                    <span class="label">{{ item.label }}</span>
+                    <span v-if="item.icon.substring(0, 2) === 'el'" :class="item.icon"></span>
+                    <span v-else class="iconfont" :class="'icon-' + item.icon"></span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import componentList from '@/custom-component/component-list'
+import { types, componentList } from '@/custom-component/component-list'
 
 export default {
     data() {
         return {
             componentList,
+            types,
         }
     },
     methods: {
@@ -32,8 +38,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.component-list {
+.list-container {
+    margin-top: 10px;
     height: 65%;
+
+    .title-label {
+        padding: 10px;
+    }
+}
+
+.component-list {
+    height: 100%;
     padding: 10px;
     display: grid;
     grid-gap: 10px 16px;
