@@ -20,6 +20,7 @@ const ctrlKey = 17,
     pKey = 80, // 预览
     dKey = 68, // 删除
     deleteKey = 46, // 删除
+    backSpaceKey = 8, // 删除
     eKey = 69 // 清空画布
 
 export const keycodes = [66, 67, 68, 69, 71, 76, 80, 83, 85, 86, 88, 89, 90]
@@ -49,6 +50,7 @@ const unlockMap = {
     [bKey]: decompose,
     [dKey]: deleteComponent,
     [deleteKey]: deleteComponent,
+    [backSpaceKey]: deleteComponent,
     [lKey]: lock,
 }
 
@@ -62,7 +64,7 @@ export function listenGlobalKeyDown() {
         const { keyCode } = e
         if (keyCode === ctrlKey || keyCode === commandKey) {
             isCtrlOrCommandDown = true
-        } else if (keyCode == deleteKey && curComponent) {
+        } else if ((keyCode == deleteKey || keyCode == backSpaceKey) && curComponent) {
             store.commit('deleteComponent')
             store.commit('recordSnapshot')
         } else if (isCtrlOrCommandDown) {
