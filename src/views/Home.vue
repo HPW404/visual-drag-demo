@@ -96,8 +96,8 @@ export default {
             const rectInfo = this.editor.getBoundingClientRect()
             if (index) {
                 const component = deepCopy(componentList[index])
-                component.style.top = e.clientY - rectInfo.y
-                component.style.left = e.clientX - rectInfo.x
+                component.style.top = e.clientY - rectInfo.y - component.style.height / 2
+                component.style.left = e.clientX - rectInfo.x - component.style.width / 2
                 component.id = generateID()
 
                 // 根据画面比例修改组件样式比例 https://github.com/woai3c/visual-drag-demo/issues/91
@@ -164,6 +164,7 @@ export default {
             width: 288px;
             right: 0;
             top: 0;
+
             .el-select {
                 width: 100%;
             }
