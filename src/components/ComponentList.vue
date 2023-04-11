@@ -1,6 +1,6 @@
 <template>
     <div class="list-container">
-        <div v-for="i in types" :key="i.key">
+        <div v-for="i in types" :key="i.key" class="wrapper">
             <span class="title-label">{{ i.label }}</span>
             <div class="component-list" @dragstart="handleDragStart">
                 <div
@@ -39,8 +39,11 @@ export default {
 
 <style lang="scss" scoped>
 .list-container {
-    margin-top: 10px;
     height: 65%;
+
+    .wrapper {
+        margin-top: 10px;
+    }
 
     .title-label {
         padding: 10px;
