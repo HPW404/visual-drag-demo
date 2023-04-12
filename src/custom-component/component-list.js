@@ -314,6 +314,45 @@ export const componentList = [
         },
         index: 10,
     },
+    {
+        component: 'VSwitch',
+        label: '开关',
+        propValue: true,
+        icon: 'switch',
+        type: '2',
+        style: {
+            width: 40,
+            height: 20,
+        },
+        index: 11,
+    },
+    {
+        component: 'VRadio',
+        label: '单选框',
+        propValue: {},
+        icon: 'radio',
+        type: '2',
+        style: {},
+        index: 12,
+    },
+    {
+        component: 'VCheckbox',
+        label: '复选框',
+        propValue: {},
+        icon: 'check-box',
+        type: '2',
+        style: {},
+        index: 13,
+    },
+    {
+        component: 'VSelect',
+        label: '选择器',
+        propValue: {},
+        icon: 'select',
+        type: '2',
+        style: {},
+        index: 14,
+    },
 ]
 
 for (let i = 0, len = componentList.length; i < len; i++) {

@@ -11,6 +11,7 @@ const components = [
     'VTable',
     'VChart',
     'VInput',
+    'VSwitch',
 ]
 
 components.forEach(key => {
