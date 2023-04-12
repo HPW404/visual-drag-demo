@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2373406 */
-  src: url('iconfont.woff2?t=1659366162355') format('woff2'),
-       url('iconfont.woff?t=1659366162355') format('woff'),
-       url('iconfont.ttf?t=1659366162355') format('truetype');
+  font-family: "iconfont"; /* Project id 3996425 */
+  src: url('iconfont.woff2?t=1681268276085') format('woff2'),
+       url('iconfont.woff?t=1681268276085') format('woff'),
+       url('iconfont.ttf?t=1681268276085') format('truetype');
 }
 
 .iconfont {
@@ -13,71 +13,83 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-guanbi:before {
-  content: "\eca0";
-}
-
-.icon-zuhe:before {
-  content: "\e647";
-}
-
-.icon-biaoge:before {
-  content: "\e639";
-}
-
-.icon-shanchu:before {
-  content: "\e74b";
-}
-
-.icon-shangyi:before {
-  content: "\e7b5";
-}
-
-.icon-xiayi:before {
-  content: "\e7b6";
-}
-
-.icon-kongwujiaoxing:before {
-  content: "\e62d";
+.icon-zhixian:before {
+  content: "\ee43";
 }
 
 .icon-xingzhuang-sanjiaoxing:before {
   content: "\eb99";
 }
 
-.icon-24gl-circle:before {
-  content: "\ea97";
-}
-
-.icon-ziyouquxian:before {
-  content: "\edfa";
-}
-
-.icon-zhixian:before {
-  content: "\ee43";
-}
-
-.icon-xiangyouxuanzhuan:before {
-  content: "\e66a";
-}
-
-.icon-tupian:before {
-  content: "\e616";
-}
-
-.icon-suo:before {
-  content: "\e672";
+.icon-kongwujiaoxing:before {
+  content: "\eb9a";
 }
 
 .icon-juxing:before {
   content: "\e790";
 }
 
-.icon-wenben:before {
-  content: "\e652";
+.icon-24gl-circle:before {
+  content: "\ea97";
 }
 
 .icon-button:before {
-  content: "\e648";
+  content: "\e605";
+}
+
+.icon-wenben:before {
+  content: "\e854";
+}
+
+.icon-biaoge:before {
+  content: "\e622";
+}
+
+.icon-json:before {
+  content: "\e623";
+}
+
+.icon-wenjianshangchuan:before {
+  content: "\e624";
+}
+
+.icon-check-box:before {
+  content: "\e625";
+}
+
+.icon-switch:before {
+  content: "\e626";
+}
+
+.icon-tupian:before {
+  content: "\e627";
+}
+
+.icon-radio:before {
+  content: "\e629";
+}
+
+.icon-select:before {
+  content: "\e62a";
+}
+
+.icon-yulan:before {
+  content: "\e62b";
+}
+
+.icon-shurukuang:before {
+  content: "\eb94";
+}
+
+.icon-chexiao:before {
+  content: "\eb73";
+}
+
+.icon-guanbi:before {
+  content: "\eb76";
+}
+
+.icon-chongzuo:before {
+  content: "\e604";
 }
 

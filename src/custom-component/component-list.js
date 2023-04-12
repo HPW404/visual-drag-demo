@@ -136,7 +136,7 @@ export const componentList = [
     },
     {
         component: 'RectShape',
-        label: '矩形',
+        label: '边框',
         propValue: '&nbsp;',
         icon: 'juxing',
         type: '1',

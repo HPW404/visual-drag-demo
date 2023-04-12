@@ -1,18 +1,41 @@
 <template>
     <div>
         <div class="toolbar">
-            <el-button type="info" plain @click="handleAceEditorChange">JSON</el-button>
-            <el-button type="warning" plain @click="undo">撤消</el-button>
-            <el-button type="warning" plain @click="redo">重做</el-button>
+            <el-button
+                type="info"
+                plain
+                class="iconfont icon-json"
+                @click="handleAceEditorChange"
+            >
+                JSON
+            </el-button>
+            <el-button
+                type="warning"
+                plain
+                class="iconfont icon-chexiao"
+                @click="undo"
+            >
+                撤消
+            </el-button>
+            <el-button
+                type="warning"
+                plain
+                class="iconfont icon-chongzuo"
+                @click="redo"
+            >
+                重做
+            </el-button>
             <el-button
                 type="danger"
                 plain
+                icon="el-icon-delete"
                 :disabled="!curComponent"
                 @click="deleteComp"
             >
                 删除
             </el-button>
             <label for="input" class="insert">
+                <span class="iconfont icon-tupian"></span>
                 插入图片
                 <input
                     id="input"
@@ -25,12 +48,20 @@
             <el-button
                 type="primary"
                 plain
+                icon="el-icon-view"
                 style="margin-left: 10px;"
                 @click="preview(false)"
             >
                 预览
             </el-button>
-            <el-button type="success" plain @click="save">保存</el-button>
+            <el-button
+                type="success"
+                plain
+                icon="el-icon-finished"
+                @click="save"
+            >
+                保存
+            </el-button>
             <el-button
                 type="primary"
                 plain
