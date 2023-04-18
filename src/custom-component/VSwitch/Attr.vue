@@ -2,12 +2,11 @@
     <div class="attr-list">
         <CommonAttr></CommonAttr>
         <el-form>
-            <el-form-item label="开关值">
-                <el-switch
-                    v-model="curComponent.propValue"
-                    active-text="开"
-                    inactive-text="关"
-                ></el-switch>
+            <el-form-item label="关闭提示文字">
+                <el-input v-model="curComponent.propValue.offText" />
+            </el-form-item>
+            <el-form-item label="开启提示文字">
+                <el-input v-model="curComponent.propValue.onText" />
             </el-form-item>
         </el-form>
     </div>

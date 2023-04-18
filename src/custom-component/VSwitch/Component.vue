@@ -1,6 +1,8 @@
 <template>
     <div>
-        <el-switch v-model="modelValue"></el-switch>
+        <span ref="off" class="off" :class="{ active: !value }">{{ propValue.offText }}</span>
+        <el-switch v-model="value"></el-switch>
+        <span ref="on" class="on" :class="{ active: value }">{{ propValue.onText }}</span>
     </div>
 </template>
 
@@ -11,8 +13,8 @@ export default {
     extends: OnEvent,
     props: {
         propValue: {
-            type: Boolean,
-            default: true,
+            type: Object,
+            default: () => {},
         },
         element: {
             type: Object,
@@ -21,20 +23,22 @@ export default {
     },
     data() {
         return {
-            value: this.propValue,
+            value: this.propValue.status,
         }
-    },
-    computed: {
-        modelValue: {
-            get() {
-                return this.propValue
-            },
-            set(val) {
-                this.value = val
-            },
-        },
     },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.off {
+    margin-right: 10px;
+}
+
+.on {
+    margin-left: 10px;
+}
+
+.active {
+    color: #409eff;
+}
+</style>

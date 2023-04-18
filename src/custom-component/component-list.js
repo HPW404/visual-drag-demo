@@ -317,11 +317,15 @@ export const componentList = [
     {
         component: 'VSwitch',
         label: '开关',
-        propValue: true,
+        propValue: {
+            status: true,
+            offText: '关',
+            onText: '开',
+        },
         icon: 'switch',
         type: '2',
         style: {
-            width: 40,
+            width: 90,
             height: 20,
         },
         index: 11,

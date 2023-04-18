@@ -79,6 +79,14 @@ export default {
             color: #fff;
             font-size: 12px;
             padding: 1px;
+            opacity: 0;
+            transition: .5s all;
+        }
+
+        &:hover {
+            .label {
+                opacity: 1;
+            }
         }
 
         &:active {
