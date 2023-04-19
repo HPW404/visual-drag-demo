@@ -1,7 +1,7 @@
 <template>
     <div class="radio-wrapper">
         <label :for="propValue.id">
-            <div class="radio-label">{{ propValue.label }}</div>
+            <span class="radio-label">{{ propValue.label }}</span>
             <input
                 :id="propValue.id"
                 class="radio-input"
@@ -35,10 +35,8 @@ export default {
 .radio-wrapper {
     display: flex;
     align-items: center;
-    position: relative;
 
     .radio-label {
-        display: inline-block;
         margin-right: 5px;
     }
 
