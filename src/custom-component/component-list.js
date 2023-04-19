@@ -327,16 +327,26 @@ export const componentList = [
         style: {
             width: 90,
             height: 20,
+            fontSize: '',
+            fontWeight: 400,
         },
         index: 11,
     },
     {
         component: 'VRadio',
         label: '单选框',
-        propValue: {},
+        propValue: {
+            id: '',
+            label: '标签',
+            value: '单选框值',
+            name: 'radio',
+        },
         icon: 'radio',
         type: '2',
-        style: {},
+        style: {
+            width: 46,
+            height: 20,
+        },
         index: 12,
     },
     {

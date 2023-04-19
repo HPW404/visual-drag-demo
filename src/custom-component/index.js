@@ -12,6 +12,7 @@ const components = [
     'VChart',
     'VInput',
     'VSwitch',
+    'VRadio',
 ]
 
 components.forEach(key => {
