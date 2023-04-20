@@ -41,8 +41,8 @@ export default {
     }
 
     .radio-input {
-        position: absolute;
-        top: 20%;
+        display: inline-block;
+        vertical-align: middle;
     }
 }
 </style>
