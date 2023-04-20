@@ -373,10 +373,28 @@ export const componentList = [
     {
         component: 'VSelect',
         label: '选择器',
-        propValue: {},
+        propValue: {
+            placeholder: '请选择',
+            data: [],
+            value: '',
+        },
+        request: {
+            method: 'GET',
+            data: [],
+            url: '',
+            series: false,
+            time: 1000,
+            paramType: '', // string object array
+            requestCount: 0, // 请求次数限制，0 为无限
+        },
         icon: 'select',
         type: '2',
-        style: {},
+        style: {
+            width: 205,
+            height: 32,
+            fontSize: '',
+            fontWeight: 400,
+        },
         index: 14,
     },
 ]
