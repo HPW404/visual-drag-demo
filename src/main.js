@@ -3,6 +3,7 @@ import ElementUI from 'element-ui'
 import App from './App'
 import store from './store'
 import router from './router'
+import axios from 'axios'
 import '@/custom-component' // 注册自定义组件
 
 import '@/assets/iconfont/iconfont.css'
@@ -12,6 +13,7 @@ import '@/styles/reset.css'
 import '@/styles/global.scss'
 
 Vue.use(ElementUI, { size: 'small' })
+axios.defaults.baseURL = '/api'
 Vue.config.productionTip = false
 
 new Vue({

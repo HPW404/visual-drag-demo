@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Editor from '@/components/Editor/index'
 import ComponentList from '@/components/ComponentList' // 左侧列表组件
 import AnimationList from '@/components/AnimationList' // 右侧动画列表
@@ -78,14 +79,17 @@ export default {
     methods: {
         restore() {
             // 用保存的数据恢复画布
-            if (localStorage.getItem('canvasData')) {
-                setDefaultcomponentData(JSON.parse(localStorage.getItem('canvasData')))
-                this.$store.commit('setComponentData', JSON.parse(localStorage.getItem('canvasData')))
-            }
-
-            if (localStorage.getItem('canvasStyle')) {
-                this.$store.commit('setCanvasStyle', JSON.parse(localStorage.getItem('canvasStyle')))
-            }
+            axios({
+                url: '/canvas',
+                method: 'get',
+            }).then(res => {
+                const { canvasData, canvasStyle } = res.data.data[0]
+                setDefaultcomponentData(canvasData)
+                this.$store.commit('setComponentData', canvasData)
+                this.$store.commit('setCanvasStyle', canvasStyle)
+            }).catch(err => {
+                this.$message.error(err.message)
+            })
         },
 
         handleDrop(e) {

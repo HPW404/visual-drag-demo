@@ -116,6 +116,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import generateID from '@/utils/generateID'
 import toast from '@/utils/toast'
 import { mapState } from 'vuex'
@@ -135,6 +136,14 @@ export default {
             timer: null,
             isScreenshot: false,
             scale: 100,
+            imgFile: {
+                img: null,
+            },
+            fileId: '',
+            canvasDatas: {
+                canvasStyle: '',
+                canvasData: '',
+            },
         }
     },
     computed: mapState([
@@ -208,48 +217,61 @@ export default {
                 return
             }
 
-            const reader = new FileReader()
-            reader.onload = (res) => {
-                const fileResult = res.target.result
-                const img = new Image()
-                img.onload = () => {
-                    const component = {
-                        ...commonAttr,
-                        id: generateID(),
-                        component: 'Picture',
-                        label: '图片',
-                        icon: '',
-                        propValue: {
-                            url: fileResult,
-                            flip: {
-                                horizontal: false,
-                                vertical: false,
+            this.imgFile.img = file
+            axios({
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                method: 'post',
+                url: '/upload',
+                data: this.imgFile,
+            }).then(res => {
+                this.fileId = res.data.fileId
+                const reader = new FileReader()
+                reader.onload = () => {
+                    const fileResult = 'http://localhost:3001/uploads/' + this.fileId + '.jpg'
+                    const img = new Image()
+                    img.onload = () => {
+                        const component = {
+                            ...commonAttr,
+                            id: generateID(),
+                            component: 'Picture',
+                            label: '图片',
+                            icon: 'tupian',
+                            propValue: {
+                                url: fileResult,
+                                flip: {
+                                    horizontal: false,
+                                    vertical: false,
+                                },
                             },
-                        },
-                        style: {
-                            ...commonStyle,
-                            top: 0,
-                            left: 0,
-                            width: img.width,
-                            height: img.height,
-                        },
+                            style: {
+                                ...commonStyle,
+                                top: 0,
+                                left: 0,
+                                width: img.width,
+                                height: img.height,
+                            },
+                        }
+
+                        // 根据画面比例修改组件样式比例 https://github.com/woai3c/visual-drag-demo/issues/91
+                        changeComponentSizeWithScale(component)
+
+                        this.$store.commit('addComponent', { component })
+                        this.$store.commit('recordSnapshot')
+
+                        // 修复重复上传同一文件，@change 不触发的问题
+                        $('#input').setAttribute('type', 'text')
+                        $('#input').setAttribute('type', 'file')
                     }
 
-                    // 根据画面比例修改组件样式比例 https://github.com/woai3c/visual-drag-demo/issues/91
-                    changeComponentSizeWithScale(component)
-
-                    this.$store.commit('addComponent', { component })
-                    this.$store.commit('recordSnapshot')
-
-                    // 修复重复上传同一文件，@change 不触发的问题
-                    $('#input').setAttribute('type', 'text')
-                    $('#input').setAttribute('type', 'file')
+                    img.src = fileResult
                 }
 
-                img.src = fileResult
-            }
-
-            reader.readAsDataURL(file)
+                reader.readAsDataURL(file)
+            }).catch(err => {
+                console.log(err)
+            })
         },
 
         preview(isScreenshot) {
@@ -259,9 +281,17 @@ export default {
         },
 
         save() {
-            localStorage.setItem('canvasData', JSON.stringify(this.componentData))
-            localStorage.setItem('canvasStyle', JSON.stringify(this.canvasStyleData))
-            this.$message.success('保存成功')
+            this.canvasDatas.canvasData = JSON.stringify(this.componentData)
+            this.canvasDatas.canvasStyle = JSON.stringify(this.canvasStyleData)
+            axios({
+                method: 'put',
+                url: '/canvas',
+                data: this.canvasDatas,
+            }).then(res => {
+                this.$message.success(res.data.msg)
+            }).catch(err => {
+                this.$message.error(err.message)
+            })
         },
 
         clearCanvas() {

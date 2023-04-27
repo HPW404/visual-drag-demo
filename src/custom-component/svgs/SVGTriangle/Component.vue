@@ -56,7 +56,7 @@ export default {
         },
 
         drawTriangle(width, height) {
-            // 五角星十个坐标点的比例集合
+            // 三角形三个坐标点的比例集合
             const points = [
                 [0.5, 0.05],
                 [1, 0.95],
