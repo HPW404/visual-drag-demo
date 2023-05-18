@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { Message } from 'element-ui'
 import animation from './animation'
 import compose from './compose'
 import contextmenu from './contextmenu'
@@ -122,6 +123,8 @@ const data = {
             if (/\d/.test(index)) {
                 state.componentData.splice(index, 1)
             }
+            
+            Message.success('删除成功')
         },
     },
 }
