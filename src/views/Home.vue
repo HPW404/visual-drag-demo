@@ -55,6 +55,7 @@ import RealTimeComponentList from '@/components/RealTimeComponentList'
 import CanvasAttr from '@/components/CanvasAttr'
 import { changeComponentSizeWithScale } from '@/utils/changeComponentsSizeWithScale'
 import { setDefaultcomponentData } from '@/store/snapshot'
+import { getFileCodeTree } from '@/schema'
 
 export default {
     components: { Editor, ComponentList, AnimationList, EventList, Toolbar, RealTimeComponentList, CanvasAttr },
@@ -87,6 +88,7 @@ export default {
                 setDefaultcomponentData(canvasData)
                 this.$store.commit('setComponentData', canvasData)
                 this.$store.commit('setCanvasStyle', canvasStyle)
+                getFileCodeTree(canvasData, { lang: 'vue' })
             }).catch(err => {
                 this.$message.error(err.message)
             })

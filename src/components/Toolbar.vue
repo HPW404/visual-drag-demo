@@ -96,6 +96,7 @@
                 解锁
             </el-button>
             <el-button type="info" plain @click="preview(true)">截图</el-button>
+            <el-button type="info" plain @click="handleExport">导出</el-button>
 
             <div class="canvas-config">
                 <span>画布大小</span>
@@ -126,6 +127,7 @@ import { commonStyle, commonAttr } from '@/custom-component/component-list'
 import eventBus from '@/utils/eventBus'
 import { $ } from '@/utils/utils'
 import changeComponentsSizeWithScale, { changeComponentSizeWithScale } from '@/utils/changeComponentsSizeWithScale'
+import { getFileCodeTree } from '@/schema'
 
 export default {
     components: { Preview, AceEditor },
@@ -143,6 +145,7 @@ export default {
             canvasDatas: {
                 canvasStyle: '',
                 canvasData: '',
+                code: '',
             },
         }
     },
@@ -283,8 +286,9 @@ export default {
         save() {
             this.canvasDatas.canvasData = JSON.stringify(this.componentData)
             this.canvasDatas.canvasStyle = JSON.stringify(this.canvasStyleData)
+            this.canvasDatas.code = getFileCodeTree(this.componentData, { lang: 'vue' })
             axios({
-                method: 'put',
+                method: 'post',
                 url: '/canvas',
                 data: this.canvasDatas,
             }).then(res => {
@@ -303,6 +307,13 @@ export default {
         handlePreviewChange() {
             this.isShowPreview = false
             this.$store.commit('setEditMode', 'edit')
+        },
+
+        handleExport() {
+            const a = document.createElement('a')
+            a.setAttribute('download', 'App.vue')
+            a.href = 'http://localhost:3001/App.vue'
+            a.click()
         },
     },
 }
